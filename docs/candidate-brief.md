@@ -21,37 +21,34 @@ Implement a GitHub issue lifecycle flow.
 Expected deliverables:
 
 1. `helpers/github/helpers.js`
-2. `tests/github/github_issues_.spec.js`
-3. `tests/github/github_comments_.spec.js`
+2. `tests/github/issues_.spec.js`
+3. `tests/github/issues_comments_.spec.js`
 
 ## Required Flows
 
-### 1. Create issue via API, verify via UI
+### `issues_.spec.js`
 
-The test should:
+**1. after creating an issue via UI, it should be visible in the UI**
 
-1. Create a unique issue through the API in your own temporary repository.
-2. Open the issue in the GitHub UI.
-3. Verify the issue is visible in the repository UI.
+1. Create a unique issue through the GitHub UI.
+2. Assert it appears in the repository issues list via the API.
 
-### 2. Edit and close issue via UI, verify via API
+**2. after creating an issue via API, edit it and assert via API**
 
-The test should:
+1. Create a unique issue via the API.
+2. Open the issue in the UI and edit the title and body.
+3. Assert the updated title and body via the API.
 
-1. Create a unique issue through the API.
-2. Open the issue in the UI.
-3. Edit the issue title and body through the UI.
-4. Close the issue through the UI.
-5. Assert the updated issue via the API.
+**3. after creating an issue via API, close it and assert via API**
 
-### 3. Create issue via API, comment via UI, verify via API
+1. Create a unique issue via the API.
+2. Open the issue in the UI and close it.
+3. Assert the issue state is `closed` via the API.
 
-The test should:
+### `issues_comments_.spec.js`
 
-1. Create a unique issue through the API.
-2. Open the issue in the UI.
-3. Add a comment through the UI.
-4. Assert the comment through the API.
+Apply the same test structure pattern to GitHub issue comments.
+The spec file contains a hint. Figure out the right flows from there.
 
 ## Candidate Setup
 

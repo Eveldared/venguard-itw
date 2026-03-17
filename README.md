@@ -19,10 +19,6 @@ Write an E2E test suite for an **issue lifecycle flow** on GitHub.
 
 Candidate-facing brief: [docs/candidate-brief.md](docs/candidate-brief.md)
 
-Scoring rubric: [docs/scoring-rubric.md](docs/scoring-rubric.md)
-
-Owner notes for the self-setup model: [docs/admin-setup.md](docs/admin-setup.md)
-
 Local setup validation:
 
 - `npm run github:discover`
@@ -51,18 +47,17 @@ A domain helper file with at minimum:
 | `_addIssueComment(request, issueNumber, body)` | Adds a comment through the API when needed for setup or cleanup. |
 | `_closeIssue(request, issueNumber)` | Closes the issue for cleanup. |
 
-### 2. `tests/github/github_issues_.spec.js`
+### 2. `tests/github/issues_.spec.js`
 
-Two tests minimum:
+Three tests:
 
-- **Test 1** — Create an issue via the API, verify it appears in the UI
-- **Test 2** — Edit an issue via the UI and close it via the UI, assert the persisted state via API
+- `after creating an issue via UI, it should be visible in the UI`
+- `after creating an issue via API, edit it and assert via API`
+- `after creating an issue via API, close it and assert via API`
 
-### 3. `tests/github/github_comments_.spec.js`
+### 3. `tests/github/issues_comments_.spec.js`
 
-One test:
-
-- Create an issue via the API, add a comment via the UI, assert the comment exists via API
+Apply the same pattern to comments. The spec file contains a comment that guides you.
 
 ### 4. Configuration for the exercise
 
@@ -235,7 +230,7 @@ export GITHUB_TOKEN='your-local-scoped-token'
 export GITHUB_STORAGE_STATE='path/to/your/storage-state.json'  # optional
 npm run github:discover
 npm run github:preflight
-npx playwright test tests/github/github_issues_.spec.js   # single file
+npx playwright test tests/github/issues_.spec.js   # single file
 npx playwright test --headed        # with browser visible
 ```
 
@@ -253,4 +248,4 @@ npx playwright test --headed        # with browser visible
 | Auth | Sensible handling of the candidate's own GitHub token and browser session |
 | Cleanup | Issues closed via API at end of each test |
 
-Detailed scoring sheet: [docs/scoring-rubric.md](docs/scoring-rubric.md)
+
