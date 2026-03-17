@@ -64,6 +64,8 @@ You must create or provide:
 
 Run `npm run github:preflight` before writing any test. If it fails, fix your setup first.
 
+> **The solution will be reviewed by cloning your fork and running it with a different `.env` pointing to a separate GitHub repository and a different GitHub account. If the tests only work with your specific token, your specific repo name, or any hardcoded value, the solution fails. Every credential and every repository reference must come exclusively from environment variables.**
+
 ## Constraints
 
 These constraints are intentional. Review will focus on whether you respected them.

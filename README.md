@@ -13,6 +13,8 @@
 
 Never commit your `.env` file or any token. The `.gitignore` already excludes it.
 
+> **The solution will be reviewed by cloning your fork and running it with a different `.env` pointing to a separate GitHub repository. If it only works with your specific credentials or your specific repo, it will fail review. Everything that varies must come from environment variables.**
+
 ---
 
 ## Context
